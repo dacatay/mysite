@@ -3,7 +3,8 @@ from django.contrib.auth import views as auth_views
 
 from . import views
 
-app_name = 'accounts'
+#app_name = 'accounts'
+
 
 urlpatterns = [
     # .com/accounts/
@@ -23,7 +24,13 @@ urlpatterns = [
     url(r'^update/$', views.AccountUpdate.as_view(), name='update_account'),
 
     # .com/accounts/oauth
-    url(r'^oauth/$', include('social_django.urls', namespace='social')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+
+    # .com/accounts/settings
+    url(r'^settings/$', views.settings, name='settings'),
+
+    # .com/accounts/settings/password
+    url(r'^settings/password/$', views.password, name='password'),
 ]
 
 

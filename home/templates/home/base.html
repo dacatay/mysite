@@ -1,149 +1,148 @@
 <!DOCTYPE HTML>
-
 {% load staticfiles sekizai_tags %}
-
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-  <!-- META DATA -->
-	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Free Bootstrap Themes by HTML5XCSS3 dot com - Free Responsive Html5 Templates">
-    <meta name="author" content="http://www.html5xcss3.com">
 
-	<title>News Smith - Pick your own news feed.</title>
-  
-	<!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}"  type="text/css">
-	
-	<!-- Owl Carousel Assets -->
-    <link href="{% static 'home/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <!-- <link href="owl-carousel/owl.theme.css" rel="stylesheet"> -->
-	
-	<!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
-	
-	<!-- Custom Fonts -->
-    <link rel="stylesheet" href="{% static 'home/font-awesome-4.4.0/css/font-awesome.min.css' %}"  type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
-	
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="{% static 'home/js/html5shiv.js' %}"></script>
-        <script src="{% static 'home/js/respond.min.js' %}"></script>
-    <![endif]-->
-	{% render_block "css" %}
+	<head>
+		<title>News Smith - News Aggregator by Daniel Kerim Acatay</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="{% static 'home/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'home/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'home/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'home/css/ie8.css' %}" /><![endif]-->
+		{% render_block "css" %}
+		{% render_block "js" %}
+	</head>
+
+
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="/" class="logo"><strong>News Smith </strong> by Daniel Kerim Acatay</a>
+									{% if user.is_authenticated %}
+									<ul class="icons">
+										<li><a class="icon fa-user" href="/accounts/"> {{ user.email }}<span class="label">User Profile</a></li>
+										<li><a class="icon fa-sign-out" href="/accounts/logout/">Log out<span class="label">User Profile</span></a></li>
+									</ul>
+									{% else %}
+									<ul class="icons">
+										<li><a class="icon fa-sign-in" href="/accounts/login/"> Login<span class="label">Login</span></a></li>
+										<li><a class="icon fa-user-plus" href="/accounts/signup/"> Sign Up<span class="label">Sign Up</span></a></li>
+									</ul>
+									{% endif %}
+								</header>
+
+							{% block content %}
+
+							{% endblock %}
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="/">Homepage</a></li>
+										<li><a href="/generic/">Generic</a></li>
+										<li><a href="/elements/">Elements</a></li>
+										<li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="/news/">News</a></li>
+										<li><a href="/about/">About</a></li>
+										<li><a href="/blog/">Blog</a></li>
+										<li><a href="/contact/">Contact</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="{% static 'home/img/pic07.jpg' %}" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'home/img/pic08.jpg' %}" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="{% static 'home/img/pic09.jpg' %}" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Daniel Kerim Acatay</p>
+									<ul class="contact">
+										<li class="fa-envelope-o"><a href="#">daniel.acatay@googlemail.com</a></li>
+										<li class="fa-phone">+49 173 85 27 600</li>
+										<li class="fa-home">Reineckerstraße 1<br />
+										Frankfurt am Main, Germany</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'home/js/jquery.min.js' %}"></script>
+			<script src="{% static 'home/js/skel.min.js' %}"></script>
+			<script src="{% static 'home/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'home/js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'home/js/main.js' %}"></script>
 	{% render_block "js" %}
-	
-</head>
 
- <body class="index-page">
-
-	<!-- /////////////////////////////////////////Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="/">News Smith</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-middle">
-					<li>
-                        <a class="page-scroll" href="/">Home</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="/news/">News</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="/blog/">Blog</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/about/">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/contact/">Contact</a>
-                    </li>
-                </ul>
-
-                {% if user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="/accounts/"><i class="fa fa-user"></i> {{ user.email }}</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/accounts/logout/">Log out</a>
-                    </li>
-                </ul>
-                {% else %}
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-                        <a class="page-scroll" href="/accounts/login/">Login</a>
-                    </li>
-					<li>
-                        <a class="page-scroll" href="/accounts/signup/">Sign Up</a>
-                    </li>
-                </ul>
-                {% endif %}
-
-
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-	<!-- Navigation -->
-
-	<!-- CAROUSEL -->
-	{% include "home/carousel.html" %}
-
-	<header class="container">
-		<div class="site-branding">
-			<h1 class="site-title">
-				<a href="index.html">
-					<span>Justice</span>
-				</a>
-			</h1>
-			<h2 class="site-description">Welcome to Us !</h2>
-		</div>
-		<div class="social-links">
-			<ul class="list-inline">
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-				<li><a href="#"><i class="fa fa-rss"></i></a></li>
-			</ul>
-		</div>
-	</header>
-	
-	{% block content %}
-
-	{% endblock %}
-	
-	<!-- FOOTER -->
-	{% include "home/footer.html" %}
-  
-	<!-- jQuery -->
-	<script type="text/javascript" src="{% static 'home/js/jquery-2.1.1.js' %}"></script>
-	<script type="text/javascript" src="{% static 'home/js/bootstrap.min.js' %}"></script>
-	
-	<!-- Custom Theme JavaScript -->
-	<script src="{% static 'home/js/agency.js' %}"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="{% static 'home/js/jquery.easing.min.js' %}"></script>
-	<script src="{% static 'home/js/classie.js' %}"></script>
-	<script src="{% static 'home/js/cbpAnimatedHeader.js' %}"></script>
- 	{% render_block "js" %}
-	
-</body>
+	</body>
 </html>
