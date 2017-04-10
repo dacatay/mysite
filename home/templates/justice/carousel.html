@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+{% block content %}
+
+	<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="{% static 'home/img/banner1.jpg' %}" alt="...">
+				<!-- Static Header -->
+				<div class="container">
+				<div class="header-text hidden-xs">
+					<div class="col-md-12 text-center">
+						<h1>Good Day!</h1>
+						<hr>
+						<p>Let's find ourselves some news</p>
+						<a href="/news/" class="btn btn-primary btn-xl page-scroll">Get Started</a>
+					</div>
+				</div><!-- /header-text -->
+				</div>
+			</div>
+			<div class="item">
+				<img src="{% static 'home/img/banner2.jpg' %}" alt="...">
+				<!-- Static Header -->
+				<div class="header-text hidden-xs">
+					<div class="col-md-12 text-center">
+						<h1>Good Day!</h1>
+						<hr>
+						<p>Already a member?</p>
+						<a href="" class="btn btn-primary btn-xl page-scroll">Join For Free</a>
+					</div>
+				</div><!-- /header-text -->
+			</div>
+			
+		</div>
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div> <!-- Carousel -->
+	
+{% endblock %}
