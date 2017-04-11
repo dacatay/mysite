@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.text import slugify
 from autoslug import AutoSlugField
+from tinymce.models import HTMLField
 
 
 # This is the blog apps database
@@ -11,7 +11,7 @@ class Post(models.Model):
     author = models.CharField(max_length=55, default='Author')
     slug = AutoSlugField(populate_from='title', unique=True)
 
-    body = models.TextField()
+    body = HTMLField()
     date = models.DateTimeField('date published')
 
     def __str__(self):

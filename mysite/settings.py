@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sekizai',
     'social_django',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
