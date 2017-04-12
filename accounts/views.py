@@ -14,7 +14,7 @@ from django.contrib import messages
 from social_django.models import UserSocialAuth
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import Account
+from .models import UserAccount
 
 
 class AccountView(LoginRequiredMixin, generic.DetailView):
@@ -32,7 +32,7 @@ class AccountUpdate(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy('display_account')
 
     def get_object(self):
-        return get_object_or_404(Account, user=self.request.user)
+        return get_object_or_404(UserAccount, user=self.request.user)
 
 
 # Register User

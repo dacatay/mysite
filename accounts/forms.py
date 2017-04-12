@@ -4,12 +4,12 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.models import User
 from django.forms import EmailField
 
-from .models import Account
+from .models import UserAccount
 
 
 class UserAccountForm(forms.ModelForm):
     class Meta:
-        model = Account
+        model = UserAccount
         #exclude = ['user']
         fields = ['display_name']
 

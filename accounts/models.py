@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
 
 
-class Account(models.Model):
+class UserAccount(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=50, blank=False)
     balance = models.FloatField(default=500)
@@ -13,18 +13,18 @@ class Account(models.Model):
     def save(self, *args, **kwargs):
         if not self.pk:
             try:
-                p = Account.objects.get(user=self.user)
+                p = UserAccount.objects.get(user=self.user)
                 self.pk = p.pk
-            except Account.DoesNotExist:
+            except UserAccount.DoesNotExist:
                 pass
 
-        super(Account, self).save(*args, **kwargs)
+        super(UserAccount, self).save(*args, **kwargs)
 
 
 @receiver(post_save, sender=User)
 def create_user_account(sender, instance, created, **kwargs):
     if created:
-        Account.objects.create(user=instance)
+        UserAccount.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
