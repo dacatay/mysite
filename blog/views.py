@@ -22,9 +22,9 @@ def post_list(request):
 
 
 class PostListView(ListView):
-    queryset = Post.objects.all().order_by('-publish').filter(status='published')
+    queryset = Post.objects.all().filter(status='published').order_by('-publish')
     context_object_name = 'posts'
-    paginate_by = 3
+    paginate_by = 2
     template_name = 'blog/list.html'
 
 
