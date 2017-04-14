@@ -1,0 +1,64 @@
+{% extends "home/base.html" %}
+
+{% load staticfiles sekizai_tags%}
+
+{% block content %}
+	
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div id="main-content">
+					<article>
+						<!--img src="{% static 'home/img/banner1.jpg' %}" /-->
+						<div class="art-content">
+							{% if sent %}
+								<h1>E-mail successfully sent</h1>
+								<p>"{{ post.title }}" was successflly sent by e-mail to .</p>
+							{% else %}
+								<h1>Share "{{ post.title }}" by e-mail</h1>
+								<form action="." method="post">
+									{{ form.as_p }}
+									{% csfr_token %}
+									<input type="submit" value="Send e-mail">
+								</form>
+							{% endif %}
+
+						</div>
+					</article>
+
+					<br>
+					<br>
+
+					<div class="widget wid-related">
+						<div class="heading"><h4>Related Post</h4></div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{% static 'home/img/7.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{% static 'home/img/8.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{% static 'home/img/6.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+{% endblock %}
