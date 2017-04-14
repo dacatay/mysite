@@ -1,12 +1,13 @@
 from django.conf.urls import url
-from django.views.generic import ListView
-from django.views.generic import DetailView
 
-from blog.models import Post
+from . import views
 
 
 urlpatterns = [
-    url(r'^$', ListView.as_view(queryset=Post.objects.all().order_by('-date'),
-                                template_name='blog/blog.html')),
-    url(r'^(?P<slug>[\w-]+)/$', DetailView.as_view(model=Post, template_name='blog/post.html'), name='post'),
+    # .com/blog/
+    # url(r'^$', views.post_list, name='post_list'),
+    url(r'^$', views.PostListView.as_view(), name='post_list'),
+
+    # .com/blog/year/month/day/slug
+    url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<post>[-\w]+)/$', views.post_detail, name='post_detail'),
 ]

@@ -1,0 +1,61 @@
+{% extends "home/base.html" %}
+
+{% load staticfiles sekizai_tags%}
+
+{% block content %}
+	
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div id="main-content">
+					<article>
+						<!--img src="{% static 'home/img/banner1.jpg' %}" /-->
+						<div class="art-content">
+							<h1>My Blog</h1>
+							{% for post in posts %}
+								<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+								<p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+								{{ post.body|truncatewords:30|linebreaks }}
+							{% endfor %}
+
+							{% include "blog/pagination.html" with page=page_obj %}
+
+						</div>
+					</article>
+
+					<br>
+					<br>
+
+					<div class="widget wid-related">
+						<div class="heading"><h4>Related Post</h4></div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{% static 'home/img/7.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{% static 'home/img/8.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{% static 'home/img/6.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+{% endblock %}
