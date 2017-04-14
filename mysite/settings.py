@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'sekizai',
     'social_django',
     'tinymce',
+    'taggit',
 ]
 
 MIDDLEWARE = [

@@ -30,7 +30,7 @@ def create_user_account(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_account(sender, instance, **kwargs):
     try:
-        instance.account.save()
+        instance.useraccount.save()
     except ObjectDoesNotExist:
         print('Account doesn''t exist.')
         #profile = Profile(user=User)
