@@ -2,23 +2,37 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 from django.views.generic import ListView
+from taggit.models import Tag
 
 from .models import Post, Comment
 from .forms import EmailPostForm, CommentForm
 
 
-def post_list(request):
-    object_list = Post.objects.all().order_by('-publish').filter(status='published')
+def post_list(request, tag_slug=None):
+    """
+    function based view for all blogposts as a list
+    :return: rendered list.html with namespace page (paginator), post and tag
+    """
+    object_list = Post.objects.all().filter(status='published').order_by('-publish')
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        object_list = object_list.filter(tags__in=[tag])
+
     paginator = Paginator(object_list, 3)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
+        # if Page is not an integer deliver the first page
         posts = paginator.page(1)
     except EmptyPage:
+        # if page is out of range deliver last page
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/list.html', {'page': page,
-                                              'posts': posts})
+                                              'paginator': paginator,
+                                              'posts': posts,
+                                              'tag': tag})
 
 
 class PostListView(ListView):
@@ -62,9 +76,10 @@ def post_detail(request, year, month, day, post):
                                                 'comment_form': comment_form})
 
 
-
-
 def post_share(request, post_id):
+    """
+    share a post via email  
+    """
     post = get_object_or_404(Post, id=post_id, status='published')
     sent = False
     if request.method == 'POST':
