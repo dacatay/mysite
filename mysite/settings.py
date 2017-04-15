@@ -49,7 +49,12 @@ INSTALLED_APPS = [
     'social_django',
     'tinymce',
     'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
+
+# configure application for multiple domains
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

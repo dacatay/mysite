@@ -16,18 +16,37 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
+from blog.sitemaps import PostSitemap
 
+
+# consolidate sitemaps from all apps
+sitemaps = {
+    'posts': PostSitemap,
+}
 
 # includes a url() that forwards requests with the pattern app/ to the module app.urls
 # (the file with the relative URL /app/urls.py
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    # .com/
     url(r'^', include('home.urls')),
+
+    # .com/about/
     url(r'^about/', include('about.urls')),
+
     url(r'^accounts/', include('accounts.urls')),
+
+    # .com/blog/
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),
+
+    # .com/contact/
     url(r'^contact/', include('contact.urls')),
     url(r'^news/', include('news.urls')),
     url(r'^polls/', include('polls.urls')),
+
+    # sitemap for webcrawlers
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
