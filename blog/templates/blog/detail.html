@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 
 {% load staticfiles sekizai_tags%}
+{% load blog_tags %}
 
 {% block content %}
 	
@@ -33,7 +34,7 @@
 							{% for comment in comments %}
 								<div class="comment">
 									<p class="info"> Comment {{ forloop.counter }} by {{comment.name }} {{ comment.created }}</p>
-									{{ comment.body|linebreaks }}
+									{{ comment.body|markdown }}
 								</div>
 							{% empty %}
 								<p>There are no comments yet.</p>
