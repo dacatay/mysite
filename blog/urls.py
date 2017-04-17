@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
 from .feeds import LatestPostFeed
@@ -20,4 +20,7 @@ urlpatterns = [
 
     # .com/blog/feed/
     url(r'^feed/$', LatestPostFeed(), name='post_feed'),
+
+    # .com/blog/search
+    url(r'^search/$', views.post_search, name='post_search'),
 ]

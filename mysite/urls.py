@@ -36,7 +36,8 @@ urlpatterns = [
     # .com/about/
     url(r'^about/', include('about.urls')),
 
-    url(r'^accounts/', include('accounts.urls')),
+    # .com/account/
+    url(r'^account/', include('account.urls')),
 
     # .com/blog/
     url(r'^blog/', include('blog.urls', namespace='blog', app_name='blog')),

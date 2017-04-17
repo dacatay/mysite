@@ -1,0 +1,52 @@
+{% extends "home/base.html" %}
+
+{% load staticfiles sekizai_tags%}
+
+{% block content %}
+	
+	<!-- /////////////////////////////////////////Content -->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div id="main-content">
+					<article>
+						<div class="art-content">
+							<h1>Logged out</h1>
+							<p>You have been successfully logged out.</p>
+							<p><a href="{% url 'login' %}">Log in</a> again.</p>
+						</div>
+					</article>
+
+					<div class="widget wid-related">
+						<div class="heading"><h4>Related Post</h4></div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{ static 'home/img/7.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{ static 'home/img/8.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="wrap-col">
+										<a href="#"><img src="{ static 'home/img/6.jpg' %}" /></a>
+										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+{% endblock %}

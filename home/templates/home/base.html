@@ -32,18 +32,22 @@
 
 							<!-- Header -->
 								<header id="header">
-									<a href="/" class="logo"><strong>News Smith </strong> by Daniel Kerim Acatay</a>
-									{% if user.is_authenticated %}
+									{% if request.user.is_authenticated %}
 									<ul class="icons">
-										<li><a class="icon fa-user" href="/accounts/"> {{ user.email }}<span class="label">User Profile</span></a></li>
-										<li><a class="icon fa-sign-out" href="/accounts/logout/">Log out<span class="label">User Profile</span></a></li>
-									</ul>
-									{% else %}
-									<ul class="icons">
-										<li><a class="icon fa-sign-in" href="/accounts/login/"> Login<span class="label">Login</span></a></li>
-										<li><a class="icon fa-user-plus" href="/accounts/signup/"> Sign Up<span class="label">Sign Up</span></a></li>
+										<li {% if section == "dashboard" %}class="selected"{% endif %}><a href="{% url 'dashboard' %}">My Dashboard</a></li>
+										<li {% if section == "images" %}class="selected"{% endif %}><a href="#">Images</a></li>
+										<li {% if section == "people" %}class="selected"{% endif %}><a href="#">People</a></li>
 									</ul>
 									{% endif %}
+									<ul class="icons">
+										{% if request.user.is_authenticated %}
+											<li><a class="icon fa-user" href="{% url 'dashboard' %}"> {{ request.user.email }}<span class="label">User Profile</span></a></li>
+											<li><a class="icon fa-sign-out" href="{% url 'logout' %}">Log out<span class="label">log out</span></a></li>
+										{% else %}
+											<li><a class="icon fa-sign-in" href="{% url 'login' %}"> Login<span class="label">Login</span></a></li>
+											<li><a class="icon fa-user-plus" href="{% url 'register' %}"> Sign Up<span class="label">Sign Up</span></a></li>
+										{% endif %}
+									</ul>
 								</header>
 
 							{% block content %}
