@@ -9,6 +9,7 @@ urlpatterns = [
 
     # .com/account/register/
     url(r'^register/$', views.register, name='register'),
+    url(r'^edit/$', views.edit, name='edit'),
 
     # login / logout
     url(r'^', include('django.contrib.auth.urls')),

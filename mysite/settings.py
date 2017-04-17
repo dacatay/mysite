@@ -147,6 +147,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+# Media Files
+# which media files should be served
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
 # Email hosting
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = ''
@@ -155,6 +161,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Authentication
 # Login redirect

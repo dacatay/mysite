@@ -11,12 +11,16 @@
 				<div id="main-content">
 					<article>
 						<div class="art-content">
-                            <h1>Dashboard</h1>
-							<p>Hello {{ request.user.first_name }}. Welcome to your dashboard.</p>
-                            <p>You can <a href="{% url 'edit' %}">edit your profile</a>or <a href="{% url 'password_change' %}">change your password</a>.</p>
+                            <h1>Edit your account</h1>
+							<p>You can edit your account settings using the following form:</p>
+							<form action="." method="post" enctype="multipart/form-data">
+								{{ user_form.as_p }}
+								{{ profile_form.as_p }}
+								{% csrf_token %}
+								<p><input type="submit" value="Save changes"></p>
+							</form>
 						</div>
 					</article>
-
 
 				</div>
 			</div>
