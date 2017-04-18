@@ -20,38 +20,21 @@
                             </form>
                             <br>
                             <p><strong>-- OR --</strong></p>
-                            </div>
+                        </div>
 					</article>
 
-					<div class="widget wid-related">
-						<div class="heading"><h4>Related Post</h4></div>
-						<div class="content">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="wrap-col">
-										<a href="#"><img src="{ static 'home/img/7.jpg' %}" /></a>
-										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="wrap-col">
-										<a href="#"><img src="{ static 'home/img/8.jpg' %}" /></a>
-										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="wrap-col">
-										<a href="#"><img src="{ static 'home/img/6.jpg' %}" /></a>
-										<h4><a href="#">Vero eros et accumsan et iusto odio </a></h4>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<article>
+						<div class="art-content">
+                            <ul>
+                                <li class="facebook"><a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a></li>
+                                <li class="twitter"><a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a></li>
+                                <li class="github"><a href="{% url 'social:begin' 'github' %}">Login with Github</a></li>
+                            </ul>
+                        </div>
+					</article>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 
 {% endblock %}

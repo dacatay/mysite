@@ -52,6 +52,9 @@ urlpatterns = [
 
     # sitemap for webcrawlers
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+    # python-social-auth
+    url('social-auth/', include('social_django.urls', namespace='social')),
 ]
 
 

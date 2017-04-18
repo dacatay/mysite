@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^feed/$', LatestPostFeed(), name='post_feed'),
 
     # .com/blog/search
-    url(r'^search/$', views.post_search, name='post_search'),
+    #url(r'^search/$', views.post_search, name='post_search'),
 ]
