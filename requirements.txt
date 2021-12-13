@@ -21,7 +21,7 @@ grappelli-safe==0.4.6
 haystack==0.36
 html5lib==0.999999999
 idna==2.5
-lxml==3.7.3
+lxml==4.6.5
 Markdown==2.6.8
 Mezzanine==4.2.3
 oauthlib==2.0.2
